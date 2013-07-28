@@ -18,20 +18,27 @@ wget http://www.rfxn.com/downloads/maldetect-current.tar.gz
 tar -xzf maldetect-current.tar.gz
 cd maldetect-1.4.2
 sh install.sh
-echo "--------------------------------------------------------------------"
-echo ""
-echo ""
-echo "Maldet and screen successfully installed and enabled. Written by the Minotaur."
-echo ""
-echo ""
-echo "---------------------------------------------------------------------"
 #Running the maldet automagically
-read -r -p "Would you like to run the scan now? [Y/N] " response
+read -r -p "Would you like to run the scan in screen now? [Y/N] " response
 if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]
 then
 	screen -d -m -S "maldet" maldet -a /
-	screen -r maldet
+	echo "--------------------------------------------------------------------"
+	echo ""
+	echo ""
+	echo "Maldet scan running successfully. Use screen -r maldet to check progress."
+	echo "++++++++++++++Written by Sincere the Minotaur+++++++++++++++++"
+	echo ""
+	echo ""
+	echo "---------------------------------------------------------------------"
 else
+	echo "--------------------------------------------------------------------"
+	echo ""
+	echo ""
+	echo "Maldet and screen successfully installed. Written by Sincere the Minotaur."
+	echo ""
+	echo ""
+	echo "---------------------------------------------------------------------"
 	exit 0
 fi
 	
