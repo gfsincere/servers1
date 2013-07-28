@@ -29,8 +29,7 @@ echo "---------------------------------------------------------------------"
 read -r -p "Would you like to run the scan now? [Y/N] " response
 if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]
 then
-	screen
-	maldet -a /
+	screen -d -m -S "maldet" maldet -a /
 else
 	exit 0
 fi
