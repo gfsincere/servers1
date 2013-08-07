@@ -1,0 +1,7 @@
+#! /bin/bash
+#basic migration script
+#Create users.txt by running ls /var/cpanel/users > users.txt and delete the first 2 lines
+for i in `cat users.txt`; do /scripts/pkgacct $i; done
+#to scp it over to the new server you should create shared ssh keys
+scp -r /home/cpmove* root@xxx.xxx.xxx.xxx:/home
+
