@@ -13,9 +13,7 @@ then
 	cp daemon-control-dist daemon-control
 	ln -s /usr/share/denyhosts/daemon-control /etc/init.d/denyhosts
 	update-rc.d denyhosts defaults
-	crontab -l > denyho
-	echo "0,20,40 * * * * python DenyHosts-2.6/denyhosts.py -c 0,20,40 * * * * python DenyHosts-2.6/denyhosts.cfg" >> denyho
-	crontab denyho
+	crontab -l | { cat; echo "0,20,40 * * * * python DenyHosts-2.6/denyhosts.py -c 0,20,40 * * * * python DenyHosts-2.6/denyhosts.cfg"; } | crontab
 	rm denyho
 	echo "--------------------------------------------------------------------"
 	echo ""
