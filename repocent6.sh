@@ -2,7 +2,7 @@
 #Script to add RHEL EPEL Repos to CentOS 6
 #
 if [[ $EUID -ne 0 ]]; then
-   echo "This script must be run as root" 
+echo "This script must be run as root"
    exit 1
 fi
 echo "---------------------------------"
@@ -19,13 +19,13 @@ rpm -Uvh remi-release-6*.rpm epel-release-6*.rpm
 # Check to see if repos installed
 if [ -f /etc/yum.repos.d/remi.repo ];
 then
-	echo "----------------------------------"
-	echo "Repos installed successfully."
-	echo ""
-	echo "----------------------------------"
+        echo "----------------------------------"
+        echo "Repos installed successfully."
+        echo ""
+        echo "----------------------------------"
 else
-	echo "Repo installation failure, please install manually."
-	exit 1
+        echo "Repo installation failure, please install manually."
+        exit 1
 fi
 # Enabling RPM
 sed -i '1,9 s/enabled=0/enabled=1/' /etc/yum.repos.d/remi.repo
