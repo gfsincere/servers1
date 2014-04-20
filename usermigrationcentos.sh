@@ -1,4 +1,5 @@
 #! /bin/bash
+
 mkdir /root/move/
 export UGIDLIMIT=500
 awk -v LIMIT=$UGIDLIMIT -F: '($3>=LIMIT) && ($3!=65534)' /etc/passwd > /root/move/passwd.mig
